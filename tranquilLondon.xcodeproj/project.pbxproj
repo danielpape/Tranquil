@@ -15,6 +15,8 @@
 		29586F1E1C8B45EB004F877E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29586F1C1C8B45EB004F877E /* LaunchScreen.storyboard */; };
 		29586F291C8B45EC004F877E /* tranquilLondonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29586F281C8B45EC004F877E /* tranquilLondonTests.swift */; };
 		29586F341C8B45EC004F877E /* tranquilLondonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29586F331C8B45EC004F877E /* tranquilLondonUITests.swift */; };
+		295CC8DE1C8D6AF40051E31B /* placesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295CC8DD1C8D6AF40051E31B /* placesTableViewController.swift */; };
+		295CC8E01C8D70B80051E31B /* placeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295CC8DF1C8D70B80051E31B /* placeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		29586F2F1C8B45EC004F877E /* tranquilLondonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tranquilLondonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		29586F331C8B45EC004F877E /* tranquilLondonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tranquilLondonUITests.swift; sourceTree = "<group>"; };
 		29586F351C8B45EC004F877E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		295CC8DD1C8D6AF40051E31B /* placesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = placesTableViewController.swift; sourceTree = "<group>"; };
+		295CC8DF1C8D70B80051E31B /* placeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = placeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +105,13 @@
 			children = (
 				29586F101C8B45EB004F877E /* AppDelegate.swift */,
 				29586F121C8B45EB004F877E /* ViewController.swift */,
+				295CC8DD1C8D6AF40051E31B /* placesTableViewController.swift */,
 				29586F141C8B45EB004F877E /* Main.storyboard */,
 				29586F1A1C8B45EB004F877E /* Assets.xcassets */,
 				29586F1C1C8B45EB004F877E /* LaunchScreen.storyboard */,
 				29586F1F1C8B45EB004F877E /* Info.plist */,
 				29586F171C8B45EB004F877E /* tranquilLondon.xcdatamodeld */,
+				295CC8DF1C8D70B80051E31B /* placeViewController.swift */,
 			);
 			path = tranquilLondon;
 			sourceTree = "<group>";
@@ -260,8 +266,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				29586F131C8B45EB004F877E /* ViewController.swift in Sources */,
+				295CC8DE1C8D6AF40051E31B /* placesTableViewController.swift in Sources */,
 				29586F111C8B45EB004F877E /* AppDelegate.swift in Sources */,
 				29586F191C8B45EB004F877E /* tranquilLondon.xcdatamodeld in Sources */,
+				295CC8E01C8D70B80051E31B /* placeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,6 +496,7 @@
 				29586F3A1C8B45EC004F877E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		29586F3B1C8B45EC004F877E /* Build configuration list for PBXNativeTarget "tranquilLondonTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +505,7 @@
 				29586F3D1C8B45EC004F877E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		29586F3E1C8B45EC004F877E /* Build configuration list for PBXNativeTarget "tranquilLondonUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +514,7 @@
 				29586F401C8B45EC004F877E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
