@@ -12,13 +12,13 @@ import MapKit
 class Place: NSObject, MKAnnotation {
     let title: String?
     let locationName: String
-    let discipline: String
+    let placeCat: String
     let coordinate: CLLocationCoordinate2D
     
-    init(title: String, locationName: String, discipline: String, coordinate: CLLocationCoordinate2D) {
+    init(title: String, locationName: String, placeCat: String, coordinate: CLLocationCoordinate2D) {
         self.title = title
         self.locationName = locationName
-        self.discipline = discipline
+        self.placeCat = placeCat
         self.coordinate = coordinate
         
         super.init()
@@ -31,20 +31,20 @@ class Place: NSObject, MKAnnotation {
     class func fromJSON(json: [JSONValue]) -> Place? {
         // 1
         var title: String
-        if let titleOrNil = json[16].string {
+        if let titleOrNil = json[0].string {
             title = titleOrNil
         } else {
             title = ""
         }
-        let locationName = json[12].string
-        let discipline = json[15].string
+        let locationName = json[1].string
+        let placeCat = json[2].string
         
         // 2
-        let latitude = (json[18].string! as NSString).doubleValue
-        let longitude = (json[19].string! as NSString).doubleValue
+        let latitude = (json[3].string! as NSString).doubleValue
+        let longitude = (json[4].string! as NSString).doubleValue
         let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         
         // 3
-        return Place(title: title, locationName: locationName!, discipline: discipline!, coordinate: coordinate)
+        return Place(title: title, locationName: locationName!, placeCat: placeCat!, coordinate: coordinate)
     }
 }

@@ -26,10 +26,51 @@ extension ViewController: MKMapViewDelegate {
                 view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 view.canShowCallout = true
                 view.calloutOffset = CGPoint(x: -5, y: 5)
-                view.rightCalloutAccessoryView = UIButton(type:.DetailDisclosure) as UIView
-            }
+                view.rightCalloutAccessoryView = UIButton(type:.InfoDark) as UIView
+                configureDetailView(view)
             return view
+            }
         }
         return nil
+    }
+    
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView,
+        calloutAccessoryControlTapped control: UIControl) {
+            performSegueWithIdentifier("showPlaceView", sender: nil)
+    }
+    
+    func configureDetailView(annotationView: MKAnnotationView) {
+        let width = 150
+        let height = 150
+        
+        let snapshotView = UIView()
+        let views = ["snapshotView": snapshotView]
+        snapshotView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[snapshotView(180)]", options: [], metrics: nil, views: views))
+        snapshotView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[snapshotView(180)]", options: [], metrics: nil, views: views))
+        
+        let options = MKMapSnapshotOptions()
+        options.size = CGSize(width: width, height: height)
+        options.mapType = .SatelliteFlyover
+        options.camera = MKMapCamera(lookingAtCenterCoordinate: annotationView.annotation!.coordinate, fromDistance: 150, pitch: 55, heading: 0)
+        
+        let snapshotter = MKMapSnapshotter(options: options)
+        snapshotter.startWithCompletionHandler { snapshot, error in
+            if snapshot != nil {
+                let imageView = UIImageView(frame: CGRect(x: 15, y: 15, width: width, height: height))
+                imageView.image = snapshot!.image
+                self.makeImageRound(imageView)
+                snapshotView.addSubview(imageView)
+            }
+        }
+        
+        annotationView.detailCalloutAccessoryView = snapshotView
+    }
+    
+    func makeImageRound(image:UIImageView){
+        image.layer.borderWidth = 1
+        image.layer.masksToBounds = false
+        image.layer.borderColor = UIColor.whiteColor().CGColor
+        image.layer.cornerRadius = image.frame.height/2
+        image.clipsToBounds = true
     }
 }

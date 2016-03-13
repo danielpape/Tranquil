@@ -24,10 +24,14 @@ import MapKit
 
 class placesTableViewController: UITableViewController {
     
+    var places = [Place]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        assignArray()
         
         tableView.estimatedRowHeight = 96
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -49,7 +53,7 @@ class placesTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return places.count
     }
 
     
@@ -60,6 +64,12 @@ class placesTableViewController: UITableViewController {
         return cell
     }
     
+    func assignArray() {
+        
+        let VC = ViewController()
+        places = VC.places
+        print(places.count)
+    }
 
     /*
     // Override to support conditional editing of the table view.

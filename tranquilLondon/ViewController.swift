@@ -18,13 +18,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         mainMapView.delegate = self
         
-        let testPlace = Place(title: "Test Place",
-            locationName: "Test Location",
-            discipline: "Test Discipline",
-            coordinate: CLLocationCoordinate2D(latitude: 51.505572, longitude: -0.184855))
-        
-        mainMapView.addAnnotation(testPlace)
-        
         loadInitialData()
         mainMapView.addAnnotations(places)
         
@@ -55,7 +48,7 @@ class ViewController: UIViewController {
     
     func loadInitialData() {
         // 1
-        let fileName = NSBundle.mainBundle().pathForResource("PublicArt", ofType: "json");
+        let fileName = NSBundle.mainBundle().pathForResource("tranquilPlaces", ofType: "json");
         var data: NSData? = nil
         do {
             data = try NSData(contentsOfFile: fileName!, options: NSDataReadingOptions.DataReadingMappedIfSafe)
@@ -73,9 +66,9 @@ class ViewController: UIViewController {
         }
         if let jsonObject = jsonObject as? [String: AnyObject],
             let jsonData = JSONValue.fromObject(jsonObject)?["data"]?.array {
-                for artworkJSON in jsonData {
-                    if let artworkJSON = artworkJSON.array,
-                        Place = Place.fromJSON(artworkJSON) {
+                for placeJSON in jsonData {
+                    if let placeJSON = placeJSON.array,
+                        Place = Place.fromJSON(placeJSON) {
                             places.append(Place)
                             print(places)
                     }

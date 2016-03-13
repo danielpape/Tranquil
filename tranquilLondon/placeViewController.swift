@@ -34,12 +34,21 @@ class placeViewController: UIViewController {
         categoryLabel.text = placeCategory
         descTextView.text = placeDesc
 
+        makeMainImageRound()
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func makeMainImageRound(){
+        mainImage.layer.borderWidth = 1
+        mainImage.layer.masksToBounds = false
+        mainImage.layer.borderColor = UIColor.whiteColor().CGColor
+        mainImage.layer.cornerRadius = mainImage.frame.height/2
+        mainImage.clipsToBounds = true
     }
 
     /*
