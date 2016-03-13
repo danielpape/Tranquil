@@ -18,9 +18,21 @@ class placeViewController: UIViewController {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var descTextView: UITextView!
     
+    var placeName = String()
+    var placeLocation = String()
+    var placeTube = String()
+    var placeDistance = Float()
+    var placeCategory = String()
+    var placeDesc = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        nameLabel.text = placeName
+        locationLabel.text = placeLocation
+        tubeLabel.text = placeTube
+        categoryLabel.text = placeCategory
+        descTextView.text = placeDesc
 
         // Do any additional setup after loading the view.
     }
@@ -29,7 +41,6 @@ class placeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation

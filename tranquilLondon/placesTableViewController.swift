@@ -7,9 +7,23 @@
 //
 
 import UIKit
+import MapKit
+
+//struct place {
+//    var name:String
+//    var lat:CLLocationDegrees
+//    var long:CLLocationDegrees
+//    var tube:String
+//    var category:String
+//    var desc:String
+//    
+//    func getDistancetoPlace() -> Float{
+//        return 2.5
+//    }
+//}
 
 class placesTableViewController: UITableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,7 +54,8 @@ class placesTableViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        let cell:placeTableViewCell = (tableView.dequeueReusableCellWithIdentifier("cell") as? placeTableViewCell)!
+        
 
         return cell
     }
@@ -81,14 +96,22 @@ class placesTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        let destinationVC = segue.destinationViewController as! placeViewController
+//        
+//        destinationVC.placeName = cellPlaceStruct.name
+//        destinationVC.placeCategory = cellPlaceStruct.category
+//        destinationVC.placeDesc = cellPlaceStruct.desc
+//        destinationVC.placeTube = cellPlaceStruct.tube
+        
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+
 
 }

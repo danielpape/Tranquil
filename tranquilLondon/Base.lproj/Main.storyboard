@@ -68,7 +68,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" rowHeight="96" id="rmy-s1-qbQ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" rowHeight="96" id="rmy-s1-qbQ" customClass="placeTableViewCell" customModule="tranquilLondon" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="96"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rmy-s1-qbQ" id="7vq-AN-4eG">
@@ -112,7 +112,10 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="sfK-Jk-siQ" kind="show" id="1pw-nR-8n7"/>
+                                    <outlet property="placeDistanceLabel" destination="AR6-6u-JZ2" id="uXq-j4-MoP"/>
+                                    <outlet property="placeImage" destination="O4s-hK-3wd" id="YWW-O9-vX7"/>
+                                    <outlet property="placeNameLabel" destination="MeY-Z0-51D" id="bbE-V4-OqJ"/>
+                                    <segue destination="sfK-Jk-siQ" kind="show" identifier="pushPlaceView" id="1pw-nR-8n7"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -130,7 +133,7 @@
         <!--Place View Controller-->
         <scene sceneID="ctY-wA-B8K">
             <objects>
-                <viewController id="sfK-Jk-siQ" customClass="placeViewController" customModule="tranquilLondon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="placeVC" id="sfK-Jk-siQ" customClass="placeViewController" customModule="tranquilLondon" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nSK-cv-SXj"/>
                         <viewControllerLayoutGuide type="bottom" id="bfx-AV-wiy"/>
@@ -226,6 +229,11 @@
                             <constraint firstItem="XFO-UY-kup" firstAttribute="firstBaseline" secondItem="9dL-aN-Ytm" secondAttribute="firstBaseline" id="y5F-Ww-Gjr"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="RId-2B-hpq">
+                        <barButtonItem key="rightBarButtonItem" title="Share" id="i0b-rl-yhx"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="categoryLabel" destination="dgC-Nh-IyY" id="Ome-6u-OaW"/>
@@ -239,7 +247,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lyb-Fe-dIM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2856.5" y="763.5"/>
+            <point key="canvasLocation" x="2856.5" y="763.49999999999989"/>
         </scene>
         <!--Item-->
         <scene sceneID="wpa-5i-lhr">
