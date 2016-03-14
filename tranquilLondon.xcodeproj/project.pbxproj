@@ -23,6 +23,7 @@
 		29F0C2FC1C95C7D900ACFF87 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F0C2FB1C95C7D900ACFF87 /* JSON.swift */; };
 		29F0C2FE1C95E03000ACFF87 /* tranquilPlaces.json in Resources */ = {isa = PBXBuildFile; fileRef = 29F0C2FD1C95E03000ACFF87 /* tranquilPlaces.json */; };
 		29F0C3021C960BE700ACFF87 /* annotationImageTest.png in Resources */ = {isa = PBXBuildFile; fileRef = 29F0C3011C960BE700ACFF87 /* annotationImageTest.png */; };
+		29F0C3041C96ABEC00ACFF87 /* helperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F0C3031C96ABEC00ACFF87 /* helperMethods.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		29F0C2FB1C95C7D900ACFF87 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		29F0C2FD1C95E03000ACFF87 /* tranquilPlaces.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tranquilPlaces.json; sourceTree = "<group>"; };
 		29F0C3011C960BE700ACFF87 /* annotationImageTest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = annotationImageTest.png; sourceTree = "<group>"; };
+		29F0C3031C96ABEC00ACFF87 /* helperMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = helperMethods.swift; path = ../helperMethods.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		29586F0F1C8B45EB004F877E /* tranquilLondon */ = {
 			isa = PBXGroup;
 			children = (
+				29F0C3031C96ABEC00ACFF87 /* helperMethods.swift */,
 				29586F101C8B45EB004F877E /* AppDelegate.swift */,
 				29586F121C8B45EB004F877E /* ViewController.swift */,
 				29F0C2F91C95AE7900ACFF87 /* VCmapView.swift */,
@@ -294,6 +297,7 @@
 				29F0C2FA1C95AE7900ACFF87 /* VCmapView.swift in Sources */,
 				29586F111C8B45EB004F877E /* AppDelegate.swift in Sources */,
 				29586F191C8B45EB004F877E /* tranquilLondon.xcdatamodeld in Sources */,
+				29F0C3041C96ABEC00ACFF87 /* helperMethods.swift in Sources */,
 				295CC8E01C8D70B80051E31B /* placeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

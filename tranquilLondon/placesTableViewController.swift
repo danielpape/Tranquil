@@ -24,11 +24,12 @@ import MapKit
 
 class placesTableViewController: UITableViewController {
     
-    var places = [Place]()
+    let VC = ViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        assignArray()
+        
+        VC.loadInitialData()
         
         tableView.estimatedRowHeight = 96
         
@@ -53,22 +54,17 @@ class placesTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return places.count
+        return VC.places.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:placeTableViewCell = (tableView.dequeueReusableCellWithIdentifier("cell") as? placeTableViewCell)!
         
+        cell.placeNameLabel.text = String(VC.places[indexPath.row].title!)
+        cell.placeDistanceLabel.text = String(VC.places[indexPath.row].locationName)
 
         return cell
-    }
-    
-    func assignArray() {
-        
-        let VC = ViewController()
-        places = VC.places
-        print(places.count)
     }
 
     /*
@@ -113,11 +109,11 @@ class placesTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         let destinationVC = segue.destinationViewController as! placeViewController
-//        
-//        destinationVC.placeName = cellPlaceStruct.name
-//        destinationVC.placeCategory = cellPlaceStruct.category
+        
+//        destinationVC.placeName = String(VC.places[indexPath.row].title!)
+//        destinationVC.placeCategory = String(VC.places[indexPath.row].)
 //        destinationVC.placeDesc = cellPlaceStruct.desc
-//        destinationVC.placeTube = cellPlaceStruct.tube
+//        destinationVC.placeTube = String(VC.places[indexPath.row].tube)
         
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.

@@ -12,14 +12,18 @@ import MapKit
 class Place: NSObject, MKAnnotation {
     let title: String?
     let locationName: String
+    let tubeName: String
     let placeCat: String
+    let placeDesc:String
     let coordinate: CLLocationCoordinate2D
     
-    init(title: String, locationName: String, placeCat: String, coordinate: CLLocationCoordinate2D) {
+    init(title: String, locationName:String, placeCat:String, tubeName:String, coordinate:CLLocationCoordinate2D, description:String) {
         self.title = title
         self.locationName = locationName
+        self.tubeName = tubeName
         self.placeCat = placeCat
         self.coordinate = coordinate
+        self.placeDesc = description
         
         super.init()
     }
@@ -38,13 +42,11 @@ class Place: NSObject, MKAnnotation {
         }
         let locationName = json[1].string
         let placeCat = json[2].string
-        
-        // 2
-        let latitude = (json[3].string! as NSString).doubleValue
-        let longitude = (json[4].string! as NSString).doubleValue
+        let tubeName = json[3].string
+        let latitude = (json[4].string! as NSString).doubleValue
+        let longitude = (json[5].string! as NSString).doubleValue
         let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        
-        // 3
-        return Place(title: title, locationName: locationName!, placeCat: placeCat!, coordinate: coordinate)
+        let description = json[6].string
+        return Place(title: title, locationName: locationName!,placeCat: placeCat!,tubeName:tubeName!, coordinate: coordinate,description:description!)
     }
 }

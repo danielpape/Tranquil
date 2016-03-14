@@ -27,6 +27,7 @@ extension ViewController: MKMapViewDelegate {
                 view.canShowCallout = true
                 view.calloutOffset = CGPoint(x: -5, y: 5)
                 view.rightCalloutAccessoryView = UIButton(type:.InfoDark) as UIView
+                view.rightCalloutAccessoryView?.frame.size.width = 0
                 configureDetailView(view)
             return view
             }
@@ -36,17 +37,29 @@ extension ViewController: MKMapViewDelegate {
     
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView,
         calloutAccessoryControlTapped control: UIControl) {
-            performSegueWithIdentifier("showPlaceView", sender: nil)
+            performSegueWithIdentifier("showPlaceView", sender: view)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showPlaceView"{
+            let selectedAnnotation = sender?.annotation as! Place
+            let destinationVC = segue.destinationViewController as! placeViewController
+            destinationVC.placeName = selectedAnnotation.title!
+            destinationVC.placeLocation = selectedAnnotation.locationName
+            destinationVC.placeCategory = selectedAnnotation.placeCat
+            destinationVC.placeDesc = selectedAnnotation.placeDesc
+            destinationVC.placeTube = selectedAnnotation.tubeName
+        }
     }
     
     func configureDetailView(annotationView: MKAnnotationView) {
-        let width = 150
-        let height = 150
+        let width = 100
+        let height = 100
         
         let snapshotView = UIView()
         let views = ["snapshotView": snapshotView]
-        snapshotView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[snapshotView(180)]", options: [], metrics: nil, views: views))
-        snapshotView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[snapshotView(180)]", options: [], metrics: nil, views: views))
+        snapshotView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[snapshotView(110)]", options: [], metrics: nil, views: views))
+        snapshotView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[snapshotView(125)]", options: [], metrics: nil, views: views))
         
         let options = MKMapSnapshotOptions()
         options.size = CGSize(width: width, height: height)
@@ -56,21 +69,13 @@ extension ViewController: MKMapViewDelegate {
         let snapshotter = MKMapSnapshotter(options: options)
         snapshotter.startWithCompletionHandler { snapshot, error in
             if snapshot != nil {
-                let imageView = UIImageView(frame: CGRect(x: 15, y: 15, width: width, height: height))
+                let imageView = UIImageView(frame: CGRect(x: 10, y: 15, width: width, height: height))
                 imageView.image = snapshot!.image
-                self.makeImageRound(imageView)
+                helperMethods().makeImageRound(imageView)
                 snapshotView.addSubview(imageView)
             }
         }
         
         annotationView.detailCalloutAccessoryView = snapshotView
-    }
-    
-    func makeImageRound(image:UIImageView){
-        image.layer.borderWidth = 1
-        image.layer.masksToBounds = false
-        image.layer.borderColor = UIColor.whiteColor().CGColor
-        image.layer.cornerRadius = image.frame.height/2
-        image.clipsToBounds = true
     }
 }
