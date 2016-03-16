@@ -17,4 +17,11 @@ class helperMethods: NSObject {
         image.layer.cornerRadius = image.frame.height/2
         image.clipsToBounds = true
     }
+    
+    func makeStringLowerCaseAndRemoveNonAlphanumberic(string:String) -> String{
+        let charactersToRemove = NSCharacterSet.alphanumericCharacterSet().invertedSet
+        let strippedSplit:NSArray = string.componentsSeparatedByCharactersInSet(charactersToRemove)
+        let joined = strippedSplit.componentsJoinedByString("").lowercaseString
+        return joined
+    }
 }

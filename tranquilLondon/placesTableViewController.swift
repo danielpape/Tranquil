@@ -63,7 +63,7 @@ class placesTableViewController: UITableViewController {
         
         cell.placeNameLabel.text = String(VC.places[indexPath.row].title!)
         cell.placeDistanceLabel.text = String(VC.places[indexPath.row].locationName)
-
+        cell.placeImage.image = UIImage(named: String(VC.places[indexPath.row].placeImage))
         return cell
     }
 

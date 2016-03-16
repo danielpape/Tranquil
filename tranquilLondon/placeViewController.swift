@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Social
 
 class placeViewController: UIViewController {
 
@@ -41,9 +42,47 @@ class placeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    @IBAction func tapShareButton(sender: AnyObject) {
+        shareOnTwitter()
+    }
 
     override func viewDidLayoutSubviews() {
         helperMethods().makeImageRound(mainImage)
+    }
+    
+    func shareOnFacebook(){
+        if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
+            let fbShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+            fbShare.title = "Tranquil London"
+            fbShare.setInitialText("Check out this quiet place in London")
+            
+            self.presentViewController(fbShare, animated: true, completion: nil)
+            
+        } else {
+            let alert = UIAlertController(title: "Accounts", message: "Please login to a Facebook account to share.", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+
+    }
+    
+    func shareOnTwitter(){
+        if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter) {
+        
+            let tweetShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+            tweetShare.setInitialText("Chek out this quiet place in Londond")
+        
+            self.presentViewController(tweetShare, animated: true, completion: nil)
+            
+            } else {
+            
+            let alert = UIAlertController(title: "Accounts", message: "Please login to a Twitter account to tweet.", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
     }
     
     /*

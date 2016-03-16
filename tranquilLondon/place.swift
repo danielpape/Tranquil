@@ -15,16 +15,17 @@ class Place: NSObject, MKAnnotation {
     let tubeName: String
     let placeCat: String
     let placeDesc:String
+    let placeImage:String
     let coordinate: CLLocationCoordinate2D
     
-    init(title: String, locationName:String, placeCat:String, tubeName:String, coordinate:CLLocationCoordinate2D, description:String) {
+    init(title: String, locationName:String, placeCat:String, tubeName:String, coordinate:CLLocationCoordinate2D, description:String, placeImage:String) {
         self.title = title
         self.locationName = locationName
         self.tubeName = tubeName
         self.placeCat = placeCat
         self.coordinate = coordinate
         self.placeDesc = description
-        
+        self.placeImage = placeImage
         super.init()
     }
     
@@ -47,6 +48,8 @@ class Place: NSObject, MKAnnotation {
         let longitude = (json[5].string! as NSString).doubleValue
         let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         let description = json[6].string
-        return Place(title: title, locationName: locationName!,placeCat: placeCat!,tubeName:tubeName!, coordinate: coordinate,description:description!)
+        let lowerCaseString = helperMethods().makeStringLowerCaseAndRemoveNonAlphanumberic(title)
+        let placeImage = lowerCaseString
+        return Place(title: title, locationName: locationName!,placeCat: placeCat!,tubeName:tubeName!, coordinate: coordinate,description:description!,placeImage: placeImage)
     }
 }
