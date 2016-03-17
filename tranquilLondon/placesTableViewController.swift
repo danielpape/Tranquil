@@ -25,6 +25,12 @@ import MapKit
 class placesTableViewController: UITableViewController {
     
     let VC = ViewController()
+    var selectedRowTitle = String()
+    var selectedRowImage = String()
+    var selectedRowTube = String()
+    var selectedRowLocation = String()
+    var selectedRowDescription = String()
+    var selectedRowCategory = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +70,19 @@ class placesTableViewController: UITableViewController {
         cell.placeNameLabel.text = String(VC.places[indexPath.row].title!)
         cell.placeDistanceLabel.text = String(VC.places[indexPath.row].locationName)
         cell.placeImage.image = UIImage(named: String(VC.places[indexPath.row].placeImage))
+//        
+//        selectedRowTitle = String(VC.places[indexPath.row].title!)
+//        selectedRowLocation = String(VC.places[indexPath.row].locationName)
+//        selectedRowImage = String(VC.places[indexPath.row].placeImage)
+//        selectedRowTube = String(VC.places[indexPath.row].tubeName)
+//        selectedRowDescription = String(VC.places[indexPath.row].placeDesc)
+//        selectedRowCategory = String(VC.places[indexPath.row].placeCat)
+
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("pushPlaceView", sender: indexPath)
     }
 
     /*
@@ -105,18 +123,23 @@ class placesTableViewController: UITableViewController {
     
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        let destinationVC = segue.destinationViewController as! placeViewController
         
+    // TODO: Fix segue to detail view
+        
+//        let destinationVC = segue.destinationViewController as! placeViewController
+        let indexPath = sender?[1]
+        
+        print(indexPath)
+//
 //        destinationVC.placeName = String(VC.places[indexPath.row].title!)
-//        destinationVC.placeCategory = String(VC.places[indexPath.row].)
-//        destinationVC.placeDesc = cellPlaceStruct.desc
-//        destinationVC.placeTube = String(VC.places[indexPath.row].tube)
-        
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+//        destinationVC.placeCategory = selectedRowCategory
+//        destinationVC.placeDesc = selectedRowDescription
+//        destinationVC.placeTube = selectedRowTube
+//        destinationVC.placeLocation = selectedRowLocation
+//        destinationVC.placeImage = selectedRowImage
+//
     }
 
 

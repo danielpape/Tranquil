@@ -25,7 +25,6 @@ extension ViewController: MKMapViewDelegate {
                 // 3
                 view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 view.canShowCallout = true
-//                view.calloutOffset = CGPoint(x: -5, y: 5)
                 view.rightCalloutAccessoryView = UIButton(type:.InfoDark) as UIView
                 view.rightCalloutAccessoryView?.frame.size.width = 0
 //                view.image = UIImage(named:annotation.placeImage)
@@ -50,6 +49,8 @@ extension ViewController: MKMapViewDelegate {
             destinationVC.placeCategory = selectedAnnotation.placeCat
             destinationVC.placeDesc = selectedAnnotation.placeDesc
             destinationVC.placeTube = selectedAnnotation.tubeName
+            destinationVC.placeImage = selectedAnnotation.placeImage
+
         }
     }
     
@@ -71,7 +72,8 @@ extension ViewController: MKMapViewDelegate {
 //        snapshotter.startWithCompletionHandler { snapshot, error in
 //            if snapshot != nil {
                 let imageView = UIImageView(frame: CGRect(x: 10, y: 15, width: width, height: height))
-//                imageView.image = UIImage(named: String(.placeImage))
+                let image = annotationView.annotation as! Place
+                imageView.image = UIImage(named: String(image.placeImage))
                 helperMethods().makeImageRound(imageView)
                 snapshotView.addSubview(imageView)
 //            }

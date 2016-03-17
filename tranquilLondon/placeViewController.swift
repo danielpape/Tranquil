@@ -25,6 +25,7 @@ class placeViewController: UIViewController {
     var placeDistance = Float()
     var placeCategory = String()
     var placeDesc = String()
+    var placeImage = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,7 @@ class placeViewController: UIViewController {
         tubeLabel.text = placeTube
         categoryLabel.text = placeCategory
         descTextView.text = placeDesc
+        mainImage.image = UIImage(named: placeImage)
 
         // Do any additional setup after loading the view.
     }
