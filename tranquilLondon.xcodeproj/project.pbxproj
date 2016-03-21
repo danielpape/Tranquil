@@ -18,6 +18,8 @@
 		295CC8DE1C8D6AF40051E31B /* placesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295CC8DD1C8D6AF40051E31B /* placesTableViewController.swift */; };
 		295CC8E01C8D70B80051E31B /* placeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295CC8DF1C8D70B80051E31B /* placeViewController.swift */; };
 		295CC8E21C8EB7890051E31B /* placeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295CC8E11C8EB7890051E31B /* placeTableViewCell.swift */; };
+		296511EB1C9FE0EB009CA594 /* barbicanconservatory@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 296511EA1C9FE0EB009CA594 /* barbicanconservatory@2x.png */; };
+		296511ED1C9FE183009CA594 /* londonlibrary@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 296511EC1C9FE183009CA594 /* londonlibrary@2x.png */; };
 		29873C631C97F769006DA402 /* containerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29873C621C97F769006DA402 /* containerVC.swift */; };
 		29873C651C97FB45006DA402 /* roundpond@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29873C641C97FB45006DA402 /* roundpond@2x.png */; };
 		29F0C2F81C95AC0900ACFF87 /* place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F0C2F71C95AC0900ACFF87 /* place.swift */; };
@@ -63,6 +65,8 @@
 		295CC8DD1C8D6AF40051E31B /* placesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = placesTableViewController.swift; sourceTree = "<group>"; };
 		295CC8DF1C8D70B80051E31B /* placeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = placeViewController.swift; sourceTree = "<group>"; };
 		295CC8E11C8EB7890051E31B /* placeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = placeTableViewCell.swift; sourceTree = "<group>"; };
+		296511EA1C9FE0EB009CA594 /* barbicanconservatory@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barbicanconservatory@2x.png"; sourceTree = "<group>"; };
+		296511EC1C9FE183009CA594 /* londonlibrary@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "londonlibrary@2x.png"; sourceTree = "<group>"; };
 		29873C621C97F769006DA402 /* containerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = containerVC.swift; sourceTree = "<group>"; };
 		29873C641C97FB45006DA402 /* roundpond@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "roundpond@2x.png"; sourceTree = "<group>"; };
 		29F0C2F71C95AC0900ACFF87 /* place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = place.swift; sourceTree = "<group>"; };
@@ -139,6 +143,8 @@
 				29F0C2FD1C95E03000ACFF87 /* tranquilPlaces.json */,
 				29F0C3011C960BE700ACFF87 /* annotationImageTest.png */,
 				29873C641C97FB45006DA402 /* roundpond@2x.png */,
+				296511EA1C9FE0EB009CA594 /* barbicanconservatory@2x.png */,
+				296511EC1C9FE183009CA594 /* londonlibrary@2x.png */,
 			);
 			path = tranquilLondon;
 			sourceTree = "<group>";
@@ -269,9 +275,11 @@
 				29F0C2FE1C95E03000ACFF87 /* tranquilPlaces.json in Resources */,
 				29586F1E1C8B45EB004F877E /* LaunchScreen.storyboard in Resources */,
 				29586F1B1C8B45EB004F877E /* Assets.xcassets in Resources */,
+				296511EB1C9FE0EB009CA594 /* barbicanconservatory@2x.png in Resources */,
 				29F0C3021C960BE700ACFF87 /* annotationImageTest.png in Resources */,
 				29873C651C97FB45006DA402 /* roundpond@2x.png in Resources */,
 				29586F161C8B45EB004F877E /* Main.storyboard in Resources */,
+				296511ED1C9FE183009CA594 /* londonlibrary@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

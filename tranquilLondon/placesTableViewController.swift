@@ -59,86 +59,32 @@ class placesTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return VC.places.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:placeTableViewCell = (tableView.dequeueReusableCellWithIdentifier("cell") as? placeTableViewCell)!
-        
         cell.placeNameLabel.text = String(VC.places[indexPath.row].title!)
         cell.placeDistanceLabel.text = String(VC.places[indexPath.row].locationName)
         cell.placeImage.image = UIImage(named: String(VC.places[indexPath.row].placeImage))
-//        
-//        selectedRowTitle = String(VC.places[indexPath.row].title!)
-//        selectedRowLocation = String(VC.places[indexPath.row].locationName)
-//        selectedRowImage = String(VC.places[indexPath.row].placeImage)
-//        selectedRowTube = String(VC.places[indexPath.row].tubeName)
-//        selectedRowDescription = String(VC.places[indexPath.row].placeDesc)
-//        selectedRowCategory = String(VC.places[indexPath.row].placeCat)
-
         return cell
     }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("pushPlaceView", sender: indexPath)
-    }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    
     // MARK: - Navigation
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+// TODO: Fix segue to detail view
         
+        let destinationVC = segue.destinationViewController as! placeViewController
+        var indexPath = tableView.indexPathForSelectedRow!.row
         
-    // TODO: Fix segue to detail view
-        
-//        let destinationVC = segue.destinationViewController as! placeViewController
-        let indexPath = sender?[1]
-        
-        print(indexPath)
-//
-//        destinationVC.placeName = String(VC.places[indexPath.row].title!)
-//        destinationVC.placeCategory = selectedRowCategory
-//        destinationVC.placeDesc = selectedRowDescription
-//        destinationVC.placeTube = selectedRowTube
-//        destinationVC.placeLocation = selectedRowLocation
-//        destinationVC.placeImage = selectedRowImage
+        destinationVC.placeName = String(VC.places[indexPath].title!)
+        destinationVC.placeCategory = String(VC.places[indexPath].placeCat)
+        destinationVC.placeDesc = String(VC.places[indexPath].placeDesc)
+        destinationVC.placeTube = String(VC.places[indexPath].tubeName)
+        destinationVC.placeLocation = String(VC.places[indexPath].locationName)
+        destinationVC.placeImage = String(VC.places[indexPath].placeImage)
 //
     }
 

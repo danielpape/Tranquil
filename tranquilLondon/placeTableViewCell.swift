@@ -18,7 +18,7 @@ class placeTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        helperMethods().makeImageRound(placeImage)
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
